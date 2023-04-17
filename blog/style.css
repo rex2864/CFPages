@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    --color-background: #242B33;
+    --color-blog-title: #6EE2FF;
+    --color-title: #CCCCCC;
+    --color-short: #6C757D;
+    background-color: var(--color-background);
+    font-family: Roboto,sans-serif;
+}
+
+.BHHeader {
+    min-width: 200px;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+}
+
+.BHAvatar {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: -webkit-flex;
+    display: flex;
+    margin-right: 10px;
+}
+
+.BHAvatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.BHTitle {
+    font-weight: 500;
+    font-size: 2em;
+    color: var(--color-blog-title);
+    text-decoration: none;
+    margin-bottom: auto;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.BHLayout {
+    min-width: 200px;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.BHGrid {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.BHCard {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid var(--color-short);
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.BHCard_text {
+}
+
+.BHCard_text h5 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--color-title);
+    margin-bottom: 5px;
+}
+
+.BHCard_text span {
+    color: var(--color-short);
+    font-weight: 400;
+    font-size: .8em;
+    opacity: 1;
+    display: block;
+    margin-bottom: 5px;
+}

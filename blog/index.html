@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KyleBlog</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+  <script type="text/javascript">
+    function LoadPage() {
+        const name = 'posts';
+        fetch(name + '.json', {cache: "no-cache"})
+            .then(response => response.json())
+            .then(data => {
+                const src = document.getElementById(name + "-template").innerHTML;
+                const tmp = Handlebars.compile(src);
+                const res = tmp(data);
+                document.getElementById(name).innerHTML = res;
+            });
+    }
+  </script>
+</head>
+<body>
+  <div class="BHHeader">
+    <a href="index.html" class="BHAvatar">
+      <img src="images/profile.jpg" />
+    </a>
+    <a href="index.html" class="BHTitle">
+      Kyle's Blog
+    </a>
+  </div>
+  <div class="BHLayout">
+    <div id="posts" class="BHGrid">
+      <script type="text/handlebars-template" id="posts-template">
+        {{#posts}}
+        <a href="post.html?{{url}}" class="BHCard">
+          <div class="BHCard_text">
+            <h5>{{title}}</h5>
+            <span>{{date}}</span>
+          </div>
+        </a>
+        {{/posts}}
+      </script>
+    </div>
+  </div>
+  <script type="text/javascript">
+    LoadPage();
+  </script>
+</body>
+</html>

@@ -134,6 +134,11 @@ body {
     border-bottom: 1px solid var(--color-text);
 }
 
+.markdown-body h3 {
+    border-left: 2px solid var(--color-text);
+    padding-left: 5px;
+}
+
 .markdown-body pre {
     padding: 0px;
 }

@@ -15,19 +15,19 @@ youtube 동영상 시청 정도였다. 동영상 시청은 그렇게 많이 하�
 그래서 music streaming service만 사용하기로 하고 각 서비스의 가격만 살펴보기로 하자.
 
 
-#### youtube music (기존 사용)
+### youtube music (기존 사용)
 
 youtube premium이 아닌 youtube music premium 요금이 있고, 부가세 포함 기존 8,690원에서 11,990원으로 변경이 되었다.
 
 가격이 비싸져서 사용 안하기로...
 
 
-#### spotify
+### spotify
 
 국내 출시 기준 가장 저렴한 가격은 basic 요금제로 부가세 포함 8,690원이다.
 
 
-#### apple music
+### apple music
 
 apple에서 music앱을 android용으로도 출시해줘서 사용 가능하다. 추가 요금 없이 무손실 음원 이용이 가능하다는 장점이 있다.
 

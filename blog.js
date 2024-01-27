@@ -23,7 +23,7 @@ function LoadFooter() {
 function LoadList() {
     const search = new URLSearchParams(window.location.search);
     const path = search.get("n");
-    if(path != null && Number(path) != NaN) {
+    if(path != null && path != "" && Number(path) != NaN) {
         pagenum = Number(path);
     }
 
@@ -75,7 +75,7 @@ function NextPage() {
 function LoadPage() {
     const search = new URLSearchParams(window.location.search);
     const path = search.get("p");
-    const file = (path == null) ? 'undefined' : path;
+    const file = (path == null || path == "") ? 'undefined' : path;
     fetch("posts/" + file + ".md", fetch_param)
         .then(response => response.text())
         .then(text => {

@@ -21,9 +21,10 @@ function LoadFooter() {
 }
 
 function LoadList() {
-    var path = window.location.search;
-    if(path != "" && Number(path.substring(1)) != NaN) {
-        pagenum = Number(path.substring(1));
+    const search = new URLSearchParams(window.location.search);
+    const path = search.get("n");
+    if(path != null && Number(path) != NaN) {
+        pagenum = Number(path);
     }
 
     fetch("posts.json", fetch_param)
@@ -58,7 +59,7 @@ function PrevPage() {
     if(pagenum > 0) {
         pagenum--;
     }
-    document.location.href = "index.html?" + pagenum;
+    document.location.href = "index.html?n=" + pagenum;
 }
 
 function NextPage() {
@@ -68,12 +69,13 @@ function NextPage() {
     if(pagenum < pagelimit) {
         pagenum++;
     }
-    document.location.href = "index.html?" + pagenum;
+    document.location.href = "index.html?n=" + pagenum;
 }
 
 function LoadPage() {
-    var path = window.location.search;
-    var file = (path == '') ? 'undefined' : path.substring(1);
+    const search = new URLSearchParams(window.location.search);
+    const path = search.get("p");
+    const file = (path == null) ? 'undefined' : path;
     fetch("posts/" + file + ".md", fetch_param)
         .then(response => response.text())
         .then(text => {

@@ -8,6 +8,7 @@ body {
     --color-background: #242B33;
     --color-content-background: #444B53;
     --color-text: #EEEEEE;
+    --color-text-gray: #AAAAAA;
     background-color: var(--color-background);
     color: var(--color-text);
     font-family: Roboto,sans-serif;
@@ -77,6 +78,7 @@ body {
 }
 
 .grid_card_text {
+    text-decoration: none;
 }
 
 .grid_card_text h5 {
@@ -109,6 +111,7 @@ body {
 }
 
 .flex_item_text {
+    text-decoration: none;
 }
 
 .flex_item_text h5 {
@@ -141,6 +144,61 @@ body {
 
 .markdown-body pre {
     padding: 0px;
+}
+
+.archive_grid {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.archive_grid_card {
+    text-decoration: none;
+    width: 100%;
+}
+
+.archive_header_grid_card_text {
+    border-bottom: 1px solid var(--color-text);
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.archive_header_grid_card_text h5 {
+    color: var(--color-text);
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.archive_subheader_grid_card_text {
+    border-bottom: 1px solid var(--color-text);
+    margin-bottom: 5px;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.archive_subheader_grid_card_text h5 {
+    color: var(--color-text);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.archive_grid_card_text {
+    margin-bottom: 5px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+.archive_grid_card_text h5 {
+    color: var(--color-text);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.archive_grid_card_text span {
+    color: var(--color-text-gray);
+    display: block;
+    font-weight: 400;
+    font-size: .8em;
+    opacity: 1;
 }
 
 .footer {

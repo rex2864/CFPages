@@ -84,8 +84,43 @@ function LoadPage() {
         });
 }
 
-function LoadPosts() {
+function LoadAbout() {
+    fetch("posts/about.md", fetch_param)
+        .then(response => response.text())
+        .then(text => {
+            document.getElementById("content").innerHTML = marked.parse(text);
+            hljs.highlightAll();
+        });
 }
 
-function LoadTags() {
+function LoadArchive() {
+    fetch("posts.json", fetch_param)
+        .then(response => response.json())
+        .then(data => {
+            const header_src = document.getElementById("archive-header-template").innerHTML;
+            const subheader_src = document.getElementById("archive-subheader-template").innerHTML;
+            const item_src = document.getElementById("archive-item-template").innerHTML;
+            var res = "";
+            var year = 0;
+            var month = 0;
+            for(var i = 0; i < data.posts.length; i++) {
+                var y = Number(data.posts[i].date.substring(0, 4));
+                if(year != y) {
+                    year = y;
+                    var hs = header_src;
+                    res += hs.replace(/{title}/g, year);
+                }
+                var m = Number(data.posts[i].date.substring(5,7));
+                if(month != m) {
+                    month = m;
+                    var shs = subheader_src;
+                    res += shs.replace(/{title}/g, month);
+                }
+                var is = item_src;
+                res += is.replace(/{url}/g, data.posts[i].url)
+                         .replace(/{title}/g, data.posts[i].title)
+                         .replace(/{date}/g, data.posts[i].date);
+            }
+            document.getElementById("posts").innerHTML = res;
+        });
 }

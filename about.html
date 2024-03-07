@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>KyleBlog</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="blog.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script type="text/javascript" src="blog.js"></script>
+</head>
+<body>
+  <div id="header" class="header"></div>
+  <div class="layout">
+    <div id="content" class="markdown-body" style="text-align: center;"></div>
+  </div>
+  <div id="footer" class="footer"></div>
+  <script type="text/javascript">
+    LoadHeader();
+    LoadAbout();
+    LoadFooter();
+  </script>
+</body>
+</html>

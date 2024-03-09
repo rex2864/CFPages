@@ -1,4 +1,4 @@
-## music string service 변경
+## music streaming service 변경
 
 ### Intro / 계기
 

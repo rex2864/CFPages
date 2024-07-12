@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" />
   <link rel="stylesheet" href="blog.css" />
   <script type="text/javascript" src="blog.js"></script>
+  <script type="text/javascript">
+    const postlimit = 5;
+    var pagenum = 0;
+    var pagelimit = 0;
+    function PrevPage() {
+      if(pagenum == 0) return;
+      if(pagenum > 0) pagenum--;
+      document.location.href = "index.html?n=" + pagenum;
+    }
+    function NextPage() {
+      if(pagenum == pagelimit) return;
+      if(pagenum < pagelimit) pagenum++;
+      document.location.href = "index.html?n=" + pagenum;
+    }
+  </script>
 </head>
 <body>
   <div id="header" class="header"></div>
@@ -37,7 +52,26 @@
   <div id="footer" class="footer"></div>
   <script type="text/javascript">
     LoadHeader();
-    LoadList();
+    const search = new URLSearchParams(window.location.search);
+    const path = search.get("n");
+    if(path != null && path != "" && Number(path) != NaN)
+      pagenum = Number(path);
+    fetch("posts.json", fetch_param).then(response => response.json()).then(data => {
+      pagelimit = parseInt((data.posts.length - 1) / postlimit);
+      var start = pagenum * postlimit;
+      var end = start + postlimit;
+      if(data.posts.length < end)
+        end = data.posts.length;
+      const src = document.getElementById("posts-template").innerHTML;
+      var res = "";
+      for(var i = start; i < end; i++) {
+        var s = src;
+        res += s.replace(/{url}/g, data.posts[i].url)
+                .replace(/{title}/g, data.posts[i].title)
+                .replace(/{date}/g, data.posts[i].date);
+      }
+      document.getElementById("posts").innerHTML = res;
+    });
     LoadFooter();
   </script>
 </body>

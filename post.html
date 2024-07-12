@@ -11,6 +11,20 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <script type="text/javascript" src="blog.js"></script>
+  <script type="text/javascript">
+    function ProcessTags(text) {
+      if(text.lastIndexOf("Tags: ") == -1) return text;
+      var tagstr = text.substring(text.lastIndexOf("Tags: ") + 6).replace(/ /g, "");
+      var tags = tagstr.split(",");
+      var ret = "Tags: ";
+      for(let t of tags) {
+        ret += "<a href=\"tags.html?t=" + t.replace(/ /g, "") + "\">" + t.replace(/ /g, "") + "</a>";
+        if(tags.indexOf(t) < (tags.length - 1))
+          ret += ", ";
+      }
+      return text.substring(0, text.lastIndexOf("Tags: ")) + ret;
+    }
+  </script>
 </head>
 <body>
   <div id="header" class="header"></div>
@@ -36,10 +50,27 @@
     <div id="comments" class="giscus"></div>
   </div>
   <div id="footer" class="footer"></div>
-  <script type="text/javascript">
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false });
+    const mermaidRenderer = { name: 'code', level: 'block',
+                              renderer({ lang, text }) {
+                                if(lang !== 'mermaid') return false;
+                                return "<pre class=\"mermaid\">" + text + "</pre>";
+                              }};
+    marked.use({ extensions: [mermaidRenderer] });
     LoadHeader();
-    LoadPage();
+    const search = new URLSearchParams(window.location.search);
+    const path = search.get("p");
+    const file = (path == null || path == "") ? 'undefined' : path;
+    fetch("posts/" + file + ".md", fetch_param).then(response => response.text()).then(text => {
+      document.getElementById("content").innerHTML = marked.parse(ProcessTags(text));
+      mermaid.run();
+      hljs.highlightAll();
+    });
     LoadFooter();
   </script>
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script>
 </body>
 </html>

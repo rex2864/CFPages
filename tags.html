@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>KyleBlog</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" />
+  <link rel="stylesheet" href="blog.css" />
+  <script type="text/javascript" src="blog.js"></script>
+</head>
+<body>
+  <div id="header" class="header"></div>
+  <div class="layout">
+    <div id="content" class="markdown-body">
+      <script type="text/html" id="tag-list-template">
+        <a href="tags.html?t={tag}" class="tag_list_card">
+          <span>{tag}</span>
+        </a>
+      </script>
+      <script type="text/html" id="tag-item-template">
+        <a href="post.html?p={url}" class="tag_card">
+          <div class="tag_card_text">
+            <h5>{title}</h5>
+            <span>{date}</span>
+          </div>
+        </a>
+      </script>
+    </div>
+  </div>
+  <div id="footer" class="footer"></div>
+  <script type="text/javascript">
+    LoadHeader();
+    const search = new URLSearchParams(window.location.search);
+    const tag = search.get("t");
+    var res = "";
+    fetch("posts.json", fetch_param).then(response => response.json()).then(data => {
+      if(tag == null || tag == "") {
+        var tags = [];
+        for(let p of data.posts) {
+          tags = [...tags, ...p.tags];
+        }
+        const set = new Set(tags);
+        const utags = [...set];
+        const src = document.getElementById("tag-list-template").innerHTML;
+        res += "<center>";
+        for(let t of utags) {
+          res += src.replace(/{tag}/g, t) + "&nbsp;&nbsp;";
+        }
+        res += "</center>";
+      }
+      else {
+        const src = document.getElementById("tag-item-template").innerHTML;
+        res += "<h2 class=\"tag_card_header\">" + tag + "</h2>";
+        for(let p of data.posts) {
+          if(p.tags.includes(tag) == true) {
+            res += src.replace(/{url}/g, p.url)
+                      .replace(/{title}/g, p.title)
+                      .replace(/{date}/g, p.date);
+          }
+        }
+      }
+      document.getElementById("content").innerHTML = res;
+    });
+    LoadFooter();
+  </script>
+</body>
+</html>

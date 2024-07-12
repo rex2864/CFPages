@@ -20,7 +20,10 @@
   <div id="footer" class="footer"></div>
   <script type="text/javascript">
     LoadHeader();
-    LoadAbout();
+    fetch("posts/about.md", fetch_param).then(response => response.text()).then(text => {
+      document.getElementById("content").innerHTML = marked.parse(text);
+      hljs.highlightAll();
+    });
     LoadFooter();
   </script>
 </body>

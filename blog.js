@@ -1,5 +1,5 @@
-const fetch_param = {cache: "no-cache"};
-//const fetch_param = {};
+//const fetch_param = {cache: "no-cache"};
+const fetch_param = {};
 
 function LoadHeader() {
   fetch("header.html", fetch_param).then(response => response.text()).then(text => {

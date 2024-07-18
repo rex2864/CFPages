@@ -53,3 +53,6 @@ apple에서 music앱을 android용으로도 출시해줘서 사용 가능하다.
 내 사용 패턴을 보자면, 출퇴근 시간에 모바일 스트리밍만 사용하고, 집에서 따로 컴퓨터나 TV로는 음악을 듣지 않는다.
 
 그래서 좀더 저렴한 모바일 요금제가 있는 서비스가 유리하며, 할인까지 고려할 경우 vibe에서 1년 선결제 또는 1년 약정 구독을 하는 것이 가장 저렴하게 이용할 수 있다.
+
+---
+Tags: music, streaming, youtube_music, spotify, apple_music, melon, naver_vibe

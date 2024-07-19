@@ -55,4 +55,7 @@ apple에서 music앱을 android용으로도 출시해줘서 사용 가능하다.
 그래서 좀더 저렴한 모바일 요금제가 있는 서비스가 유리하며, 할인까지 고려할 경우 vibe에서 1년 선결제 또는 1년 약정 구독을 하는 것이 가장 저렴하게 이용할 수 있다.
 
 ---
+
+Date: 2024. 01. 23
+
 Tags: music, streaming, youtube_music, spotify, apple_music, melon, naver_vibe

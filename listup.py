@@ -43,7 +43,7 @@ fp = open("posts.json", 'w')
 fp.write("{\n\t\"posts\":[\n")
 for f in filelist:
   fn = f.replace(os.path.sep, "")
-  url = f
+  url = f.replace("%", "%25").replace("#", "%23").replace("$", "%24").replace("&", "%26").replace("+", "%2B").replace("-", "%2D").replace("?", "%3F").replace("@", "%40")
   date = fn[:4] + "-" + fn[4:6] + "-" + fn[6:8]
   title = fn[10:].replace("_", " ")
   tags = get_tags(f)

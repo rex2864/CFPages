@@ -140,3 +140,9 @@ termux 재시작해서 적용되도록 한다.
 firefox 설치: `pkg install firefox`
 
 vscode opensource version: `pkg install code-oss`
+
+---
+
+Date: 2024. 08. 05
+
+Tags: termux, termux-x11, i3, fcitx5, linux, 개발환경, gui, vscode, hangul

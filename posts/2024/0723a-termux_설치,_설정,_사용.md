@@ -69,7 +69,7 @@ pkg install lighttpd
 
 개발 언어(C/C++, python) 및 개발 관련 tool 설치
 ```
-pkg install clang python clang make cmake git
+pkg install clang python make cmake git
 ```
 
 ### termux extension, addon

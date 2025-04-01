@@ -19,7 +19,7 @@ Output 설정에서
 
 keyboard 설정에서
 - show additional keyboard 설정을 disable (HW 키보드를 사용할 거라서...)
-- Enable Accessibility service for intercepting system shortcuts manually 설정을 enable<BR>
+- Enable Accessibility service for intercepting system shortcuts automatically 설정을 enable<BR>
   (이것을 설정하기 위해서는 아래의 설정을 먼저 해줘야 한다)
 
 안드로이드 설정 -> 애플리케이션 -> Termux:X11 -> 더보기 -> 제한된 권한 설정을 선택하여 활성화.

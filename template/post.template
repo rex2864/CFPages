@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>KyleBlog</title>
+  <title>[[TITLE]]</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
-  <link rel="stylesheet" href="blog.css" />
+  <link rel="stylesheet" href="/blog.css" />
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-  <script type="text/javascript" src="blog.js"></script>
   <script type="text/javascript">
     function ProcessTags(text) {
       if(text.lastIndexOf("Tags: ") == -1) return text;
@@ -27,29 +26,12 @@
   </script>
 </head>
 <body>
-  <div id="header" class="header"></div>
+  <div id="header" class="header">[[HEADER]]</div>
   <div class="layout">
     <div id="content" class="markdown-body"></div>
-    <div>&nbsp;</div>
-    <script src="https://giscus.app/client.js"
-            data-repo="rex2864/CFPages"
-            data-repo-id="R_kgDOJXvSJw"
-            data-category="Comments"
-            data-category-id="DIC_kwDOJXvSJ84CcS_z"
-            data-mapping="url"
-            data-strict="0"
-            data-reactions-enabled="0"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="dark_dimmed"
-            data-lang="ko"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async>
-    </script>
-    <div id="comments" class="giscus"></div>
   </div>
-  <div id="footer" class="footer"></div>
+  <div id="footer" class="footer">[[FOOTER]]</div>
+  <div id="data">[[DATA]]</div>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: false });
@@ -59,16 +41,10 @@
                                 return "<pre class=\"mermaid\">" + text + "</pre>";
                               }};
     marked.use({ extensions: [mermaidRenderer] });
-    LoadHeader();
-    const search = new URLSearchParams(window.location.search);
-    const path = search.get("p");
-    const file = (path == null || path == "") ? 'undefined' : path;
-    fetch("posts/" + file + ".md", fetch_param).then(response => response.text()).then(text => {
-      document.getElementById("content").innerHTML = marked.parse(ProcessTags(text));
-      mermaid.run();
-      hljs.highlightAll();
-    });
-    LoadFooter();
+    var text = document.getElementById("data").innerText;
+    document.getElementById("content").innerHTML = marked.parse(ProcessTags(text));
+    mermaid.run();
+    hljs.highlightAll();
   </script>
 </body>
 </html>

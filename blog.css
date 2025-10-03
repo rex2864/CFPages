@@ -257,3 +257,7 @@ body {
   min-width: 200px;
   padding: 5px;
 }
+
+#data {
+    display: none;
+}

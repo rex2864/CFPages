@@ -17,7 +17,7 @@
       var tags = tagstr.split(",");
       var ret = "Tags: ";
       for(let t of tags) {
-        ret += "<a href=\"tags.html?t=" + t.replace(/ /g, "") + "\">" + t.replace(/ /g, "") + "</a>";
+        ret += "<a href=\"/tags.html?t=" + t.replace(/ /g, "") + "\">" + t.replace(/ /g, "") + "</a>";
         if(tags.indexOf(t) < (tags.length - 1))
           ret += ", ";
       }

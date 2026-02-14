@@ -1,5 +1,8 @@
 ## docker install to alpine linux
 
+(gemini로 작성함)
+
+
 ### 1. 리포지토리 활성화 및 시스템 업데이트
 
 Docker 패키지가 포함된 community 리포지토리 활성화

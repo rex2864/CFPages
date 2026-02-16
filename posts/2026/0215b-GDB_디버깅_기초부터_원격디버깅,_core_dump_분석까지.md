@@ -84,7 +84,7 @@ adb forward tcp:1234 tcp:1234
 }
 ```
 
-** 중요 ** : `${workspaceFolder}`가 포함된 항목 등 경로가 필요한 경우는 반드시 프로젝트 설정에 맞도록 수정되어야 함.
+**중요** : `${workspaceFolder}`가 포함된 항목 등 경로가 필요한 경우는 반드시 프로젝트 설정에 맞도록 수정되어야 함.
 
 
 ### 4. Core Dump 분석법 (사후 분석)
@@ -113,7 +113,7 @@ gdb-multiarch ./my_app_unstripped ./core.xxx
 ### 마치며
 
 GDB는 단순한 도구를 넘어 시스템 내부를 들여다보는 창과 같습니다.
-특히 **VS Code TUI 모드(`Ctrl+X, A`)**나 **GUI 연동**을 적절히 혼합하면,
+특히 VS Code TUI 모드(`Ctrl+X, A`)나 GUI 연동을 적절히 혼합하면,
 복잡한 커널/프레임워크 에러도 충분히 정복할 수 있습니다.
 오늘 정리한 `launch.json` 템플릿을 복사해서 여러분의 환경에 맞춰 사용해 보세요!
 

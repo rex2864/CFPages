@@ -1,12 +1,10 @@
 import os
 
 TITLE = "Kyle's Blog"
-rfp = open("template/header.template", 'r')
-HEADER = rfp.read()
-rfp.close()
-rfp = open("template/footer.template", 'r')
-FOOTER = rfp.read()
-rfp.close()
+with open('template/header.template', 'r') as f:
+  HEADER = f.read()
+with open('template/footer.template', 'r') as f:
+  FOOTER = f.read()
 
 def get_lastline(file):
   f = open("posts/" + file + ".md", 'rb')
@@ -49,9 +47,8 @@ for path, subdirs, files in os.walk("posts/"):
 filelist.sort(reverse=True)
 
 # make index.html
-rfp = open("template/list.template", 'r')
-LIST_TEMPLATE = rfp.read()
-rfp.close()
+with open('template/list.template', 'r') as f:
+  LIST_TEMPLATE = f.read()
 LIST_TEMPLATE = LIST_TEMPLATE.replace("[[HEADER]]", HEADER)
 LIST_TEMPLATE = LIST_TEMPLATE.replace("[[FOOTER]]", FOOTER)
 LIST_TEMPLATE = LIST_TEMPLATE.replace("[[TITLE]]", TITLE)
@@ -74,30 +71,25 @@ for f in filelist:
   LIST += "\n"
 LIST += "\t]\n}\n"
 LIST_TEMPLATE = LIST_TEMPLATE.replace("[[DATA]]", LIST)
-wfp = open("index.html", 'w')
-wfp.write(LIST_TEMPLATE)
-wfp.close()
+with open('index.html', 'w') as f:
+  f.write(LIST_TEMPLATE)
 
 # processing each file
-rfp = open("template/post.template", 'r')
-POST_TEMPLATE = rfp.read()
-rfp.close()
+with open('template/post.template', 'r') as f:
+  POST_TEMPLATE = f.read()
 POST_TEMPLATE = POST_TEMPLATE.replace("[[HEADER]]", HEADER)
 POST_TEMPLATE = POST_TEMPLATE.replace("[[FOOTER]]", FOOTER)
 POST_TEMPLATE = POST_TEMPLATE.replace("[[TITLE]]", TITLE)
 for f in filelist:
-  rfp = open("posts/" + f + ".md", 'r')
-  POST = rfp.read()
-  rfp.close()
+  with open("posts/" + f + ".md", 'r') as ff:
+    POST = ff.read()
   POST = POST_TEMPLATE.replace("[[DATA]]", POST)
-  wfp = open("posts/" + f + ".html", 'w')
-  wfp.write(POST)
-  wfp.close()
+  with open("posts/" + f + ".html", 'w') as ff:
+    ff.write(POST)
 
 # make archive.html
-rfp = open("template/archive.template", 'r')
-ARCHIVE_TEMPLATE = rfp.read()
-rfp.close()
+with open('template/archive.template', 'r') as f:
+  ARCHIVE_TEMPLATE = f.read()
 ARCHIVE_TEMPLATE = ARCHIVE_TEMPLATE.replace("[[HEADER]]", HEADER)
 ARCHIVE_TEMPLATE = ARCHIVE_TEMPLATE.replace("[[FOOTER]]", FOOTER)
 ARCHIVE_TEMPLATE = ARCHIVE_TEMPLATE.replace("[[TITLE]]", TITLE)
@@ -120,14 +112,12 @@ for f in filelist:
   LIST += "\n"
 LIST += "\t]\n}\n"
 ARCHIVE_TEMPLATE = ARCHIVE_TEMPLATE.replace("[[DATA]]", LIST)
-wfp = open("archive.html", 'w')
-wfp.write(ARCHIVE_TEMPLATE)
-wfp.close()
+with open('archive.html', 'w') as f:
+  f.write(ARCHIVE_TEMPLATE)
 
 # make tags.html
-rfp = open("template/tags.template", 'r')
-TAGS_TEMPLATE = rfp.read()
-rfp.close()
+with open('template/tags.template', 'r') as f:
+  TAGS_TEMPLATE = f.read()
 TAGS_TEMPLATE = TAGS_TEMPLATE.replace("[[HEADER]]", HEADER)
 TAGS_TEMPLATE = TAGS_TEMPLATE.replace("[[FOOTER]]", FOOTER)
 TAGS_TEMPLATE = TAGS_TEMPLATE.replace("[[TITLE]]", TITLE)
@@ -151,14 +141,12 @@ for f in filelist:
   LIST += "\n"
 LIST += "\t]\n}\n"
 TAGS_TEMPLATE = TAGS_TEMPLATE.replace("[[DATA]]", LIST)
-wfp = open("tags.html", 'w')
-wfp.write(TAGS_TEMPLATE)
-wfp.close()
+with open('tags.html', 'w') as f:
+  f.write(TAGS_TEMPLATE)
 
 # make about.html
-rfp = open("template/post.template", 'r')
-POST_TEMPLATE = rfp.read()
-rfp.close()
+with open('template/post.template', 'r') as f:
+  POST_TEMPLATE = f.read()
 POST_TEMPLATE = POST_TEMPLATE.replace("[[HEADER]]", HEADER)
 POST_TEMPLATE = POST_TEMPLATE.replace("[[FOOTER]]", FOOTER)
 POST_TEMPLATE = POST_TEMPLATE.replace("[[TITLE]]", TITLE)
@@ -166,6 +154,5 @@ rfp = open("posts/about.md", 'r')
 POST = rfp.read()
 rfp.close()
 POST = POST_TEMPLATE.replace("[[DATA]]", POST)
-wfp = open("posts/about.html", 'w')
-wfp.write(POST)
-wfp.close()
+with open('posts/about.html', 'w') as f:
+  f.write(POST)

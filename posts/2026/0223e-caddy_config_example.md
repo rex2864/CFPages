@@ -68,3 +68,9 @@ this is for caddy with cloudflare
 	}
 }
 ```
+
+---
+
+Date: 2026. 02. 23
+
+Tags: caddy, cloudflare, letsencryt, config

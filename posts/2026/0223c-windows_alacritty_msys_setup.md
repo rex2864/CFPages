@@ -51,3 +51,9 @@ update `C:\msys64\home\[UID]\.bashrc` file with below contents
 export PATH=/bin:$PATH
 export PS1="\[\e[32m\]\u@\h:\[\e[33m\]\w\$ "
 ```
+
+---
+
+Date: 2026. 02. 23
+
+Tags: windows, alacritty, msys2

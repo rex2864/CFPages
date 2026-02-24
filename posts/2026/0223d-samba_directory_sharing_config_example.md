@@ -1,4 +1,4 @@
-## samba directory sharing config exampled
+## samba directory sharing config example
 
 ```
 [disk1]
@@ -11,3 +11,9 @@
    directory mask = 0755
    valid users = [userid]
 ```
+
+---
+
+Date: 2026. 02. 23
+
+Tags: samba, sharing, config

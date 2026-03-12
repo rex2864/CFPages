@@ -1,4 +1,4 @@
-## VSCode terminal configuration for shortcuts/keybindings
+## VSCode terminal configuration for keybindings
 
 VSCode에 포함되어 있는 terminal에서 shortcuts/keybindings을 사용하고자 할때
 VSCode 자체의 shortcuts/keybindings과 겹치는 경우 기본적으로는 terminal이 아니라

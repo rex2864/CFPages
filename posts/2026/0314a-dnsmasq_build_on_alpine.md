@@ -297,6 +297,6 @@ tar czf dnsmasq.tar.gz *
 
 ---
 
-Date: 2026. 03. 13
+Date: 2026. 03. 14
 
 Tags: dnsmasq, build, alpine
